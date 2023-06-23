@@ -1,0 +1,23 @@
+{
+    "python.pythonPath": "C:\\Users\\86136\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+    "workbench.colorTheme": "Monokai",
+    "window.zoomLevel": 0,
+    "explorer.confirmDelete": false,
+    "editor.accessibilitySupport": "off",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.showFoldingControls": "mouseover",
+    "editor.multiCursorModifier": "ctrlCmd",
+    // 将原来的cmd.exe 替换为bash.exe  因为更喜欢bash.exe的操作
+    "terminal.integrated.rendererType": "dom",
+    "  workbench.activityBar.visible": true,
+    "python.jediEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "autopep8",
+    "python.linting.flake8Args": [
+        "--max-line-length=248"
+    ], // 设置单行最长字符限制
+    "python.linting.pylintEnabled": false,
+    "editor.guides.indentation": true // 关闭pylint工具
+}
