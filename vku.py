@@ -5,7 +5,7 @@ plt.rcParams["figure.figsize"] = (50, 3)
 
 # 参数
 height = 32     # 网格高度
-width = 512     # 网格长度
+width = 300     # 网格长度
 viscosity = 0.008   # 粘度
 omega = 1./(3*viscosity + 0.5)  # 碰撞系数
 u0 = 0.2        # 初速度（向东）
@@ -211,12 +211,9 @@ im = plt.imshow(a.reshape(height, width))
 
 
 def animate_func(i):
-    try:
-        stream()
-        bounce()
-        collide()
-    except RuntimeWarning:
-        print('warning')
+    stream()
+    bounce()
+    collide()
     im.set_array(speed2.reshape(height, width))
     return [im]
 
@@ -231,7 +228,7 @@ anim = animation.FuncAnimation(
 print('Done!')
 
 # 保存
-f = r"./simulation.mp4"
+f = r"./simulation_1.mp4"
 writervideo = animation.FFMpegWriter(fps=600)
 anim.save(f, writer=writervideo)
 
