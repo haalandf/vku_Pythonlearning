@@ -1,6 +1,7 @@
 import numpy
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import time
 plt.rcParams["figure.figsize"] = (50, 3)
 
 # 参数
@@ -193,18 +194,26 @@ def initialize(xtop, ytop, yheight, u0=u0):
 
 # 制作动画
 fps = 600
-nSeconds = 15
+nSeconds = 8
 
 fig = plt.figure(figsize=(20, 5))
 
+
+t_0 = time.time()
 initialize(25, 11, 10)
 
-for i in range(10):
+t_1 = time.time()
+
+print('initialized for %.6f ms' % ((t_1-t_0)*1000))
+
+for i in range(2400):
     stream()
     bounce()
     collide()
 
-print('done!')
+t_2 = time.time()
+
+print('produced for %.6f ms (%.3f s)' % ((t_2-t_1)*1000, (t_2-t_1)))
 
 a = speed2
 im = plt.imshow(a.reshape(height, width))
@@ -225,11 +234,12 @@ anim = animation.FuncAnimation(
     interval=1000 / fps,
 )
 
-print('Done!')
 
 # 保存
-f = r"./simulation_1.mp4"
+f = r"./final.mp4"
 writervideo = animation.FFMpegWriter(fps=600)
 anim.save(f, writer=writervideo)
+t_3 = time.time()
 
-print('save!')
+print('Save! Total time cost %.6f ms (%.3f mins)' %
+      ((t_3-t_0)*1000, (t_3-t_0)/60))
